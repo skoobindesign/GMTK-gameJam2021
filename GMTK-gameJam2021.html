@@ -98,21 +98,130 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="GMTK-gameJam2021" startnode="1" creator="Twine" creator-version="2.3.14" ifid="CEF7802A-30D8-4691-888C-56086E1F14BB" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">p.go-red {
-      transition: font-color 3s linear;
-		/**Font color transition**/
-	  -webkit-transition-property:red, text;
-	  -webkit-transition-duration: 1s, 1s;
-	  -webkit-transition-timing-function: linear, ease-in;
+	<tw-storydata name="GMTK-gameJam2021" startnode="1" creator="Twine" creator-version="2.3.14" ifid="CEF7802A-30D8-4691-888C-56086E1F14BB" zoom="0.6" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Mate+SC');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
-	  -moz-transition-property:red, text;
-	  -moz-transition-duration:1s;
-	  -moz-transition-timing-function: linear, ease-in;
 
-	  -o-transition-property:red, text;
-	  -o-transition-duration:1s;
-	  -o-transition-timing-function: linear, ease-in;
-	}
+
+/* hides default Sugarcube UI and centralises story container */
+#ui-bar {
+  display: none;
+}
+
+#story {
+  Margin-left: 2em;
+  Margin-right: 2em;
+}
+
+
+/* core styling */
+Body { 
+ background-color: #1A1A1A;
+ color: #999;
+ font-family: Lato;
+ font-size: 24px;
+ font-weight: light;
+}
+
+h1 {
+  color: #fff;
+  font-family: Mate SC;
+  font-size: 48px;
+  font-weight: 700px;
+}
+
+h2 {
+  color: #fff;
+  font-family: Mate SC;
+  font-size: 36px;
+  font-weight: 700px;
+}
+
+h3 {
+   color: #999;
+  font-family: Mate SC;
+  font-size: 36px;
+  font-weight: 600px;
+}
+
+a {
+  color: #FE6C6C;
+  font-family: Mate SC;
+  font-size: 36px;
+  text-shadow: 3px 4px 7px #2d2319;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  font-weight:800;
+  text-decoration: none;
+  border-bottom: 3px solid #fff;
+}
+
+img { /* this is so bad lol I'll fix it later */
+  position: fixed;
+  left: 100px;
+  top: 100px;
+}
+}
+
+
+
+/* flexbox */
+.mapscreen {
+  width: 100%
+}
+
+.parentflex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.childflex { /* dirty dirty dirty */
+  top: 100px;
+  margin: auto;
+  margin-top: -100px;
+}
+
+
+
+/* text animations */
+.wave {
+  animation: color-change 6s; 
+}
+
+@keyframes color-change {
+  0% { color: #fff }
+  50% { color: #f5f5f5; }
+  100% { color: #999; }
+}
+
+
+.insight {
+  animation: color-change-insight 9s; 
+}
+
+@keyframes color-change-insight {
+  0% { color: #fff }
+  75% { color: #f5f5f5; }
+  100% { color: #999; }
+}
+
+
+.lead {
+  color: #f56e82;
+  animation: color-change-lead 6s;
+}
+
+@keyframes color-change-lead {
+  0% { color: #fff }
+  100% { color: #f56e82; }
+}
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Trigger warning" tags="" position="400,200" size="100,100">
 
 [[title page]] </tw-passagedata><tw-passagedata pid="2" name="prologue" tags="" position="650,200" size="100,100">Lead: autopsy findings, favourite child, substances, body found on beach, likely fell from pier
@@ -124,41 +233,89 @@ Insight: joined, together
 </tw-passagedata><tw-passagedata pid="3" name="game mechanics" tags="" position="775,200" size="100,100">- introduce mechanics
 
 [[Go To map]]
-</tw-passagedata><tw-passagedata pid="4" name="Go To map" tags="" position="775,350" size="100,100">places
+</tw-passagedata><tw-passagedata pid="4" name="Go To map" tags="" position="775,350" size="100,100">&lt;div class=&quot;mapscreen&quot;&gt;
 
-[[Beach]]
-[[Old friend&#39;s house]]
-[[Bookies]]
-[[Crash site]]
-[[Family home]]
-[[Care home]]
-[[Lido]]
-[[Park]]
-[[Caravans]]
-[[School]]
-[[Pub]]
-[[Lucky 8]]
+  &lt;div class=&quot;parentflex&quot;&gt;
 
-</tw-passagedata><tw-passagedata pid="5" name="Beach" tags="" position="400,500" size="100,100">Lead: Unlucky menu
-Insight: Push
+	&lt;div class=&quot;childflex&quot;&gt;
+	  [img[images/skinningrove.svg]]
+	&lt;/div&gt;
 
-[[Walk up pier]]
+	&lt;div class=&quot;childflex&quot;&gt;
+	  [[Walk along the beach|Beach]]
+	  [[Visit an old friend|Old friend&#39;s house]]
+	  [[Stop by the betting shop|Bookies]]
+	  [[Go back to the crash site|Crash site]]
+	  [[Go home|Family home]]
+	  [[Visit the care home|Care home]]
+	  [[Check out the old hangout|Lido]]
+	  [[Walk around the park|Park]]
+	  [[Go up to the caravan site|Caravans]]
+	  [[See the old school|School]]
+	  [[Go for a drink|Pub]]
+	  [[Grab a take-away|Lucky 8]]
+	&lt;/div&gt;
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="6" name="Old friend&#39;s house" tags="" position="525,500" size="100,100">Lead: boarded window
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Beach" tags="" position="400,500" size="100,100">&lt;&lt;timed 1s transition&gt;&gt;
+@@.wave;You remember being happy here although, with the sun covered by black clouds and the wind howling as it tends to do in November, that seems a distant memory.@@
+&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 5s transition&gt;&gt;&lt;&lt;next&gt;&gt;
+@@.wave;Foaming water fizzes as it breaks onto the sand and threatens to dampen your already rain-soaked shoes as it crawls across shallow @@@@.insight;p@@@@.wave;iles of stinking seaweed.@@
+&lt;&lt;next&gt;&gt;
+@@.wave;The sand here is a bed of garbage. The detrit@@@@.insight;u@@@@.wave;s of an uncaring town; rusting beer can@@@@.insight;s@@@@.wave;, old blue fishing nets, and a t@@@@.insight;h@@@@.wave;ousand empty crisp packets with the labels now faded beyond recognition.@@
+&lt;&lt;next&gt;&gt;
+@@.wave;The pier is to the left of you, str@@@@.insight;e@@@@.wave;tching out across the dark sea. And, at your feet, the waves have washe@@@@.insight;d@@@@.wave; up a leaflet for the @@@@.lead;local takeaway@@@@.wave;.@@
+&lt;&lt;next&gt;&gt;
+@@.wave;You figure that’s how Vic ended up here when they found him.@@
+&lt;&lt;next&gt;&gt;
+[[Walk up pier]]		[[Leave|Go To map]]
+&lt;&lt;/timed&gt;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="Old friend&#39;s house" tags="" position="525,500" size="100,100">Lead: boarded window
 
 [[Old friend]]
 
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="7" name="Bookies" tags="" position="650,500" size="100,100">Lead: Bookie chases  debt
 Insight: debt
-
+&lt;&lt;timed 1s transition&gt;&gt;
+Knowing that Vic had grown an addictive personality over the years, it makes sense to visit the one betting shop in Skinningrove. That reveals itself to be a risky move, when a distinctly threatening bookmaker confronts you as soon as the door closes behind you.
+&lt;&lt;/timed&gt;&gt;&lt;&lt;timed 5s transition&gt;&gt;&lt;&lt;next&gt;&gt;
+“Your family owes me money, Tyde.” a tattooed and crooked finger tabs at you from across the room.
+&lt;&lt;next&gt;&gt;
+“Come to think of it– he owes you some as well, don’t he, Si’?”
+&lt;&lt;next&gt;&gt;
+Propped against the counter, a figure you recognise, clear as day, sneers at you.
+&lt;&lt;next&gt;&gt;
 [[Talk to Simon]]
 [[Ask around]]
-
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="8" name="Crash site" tags="" position="775,500" size="100,100">Lead: Old flowers
+&lt;&lt;next&gt;&gt;
+[[Leave|Go To map]]
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Crash site" tags="" position="775,500" size="100,100">Lead: Old flowers
 Insight: Fault
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="9" name="Family home" tags="" position="1025,500" size="100,100">[[Talk to mum]]
+12 years ago, you crashed your car on this corner. Lost control coming round the corner, and ran it straight into the cliff that lined the road.
+
+You came away with scrapes, Vic’s leg was broken in four places. 
+
+Two plates, eighteen screws and a rod through the length of his femur. Horrific for anyone to endure. Absolutely devastating for an olympic-hopeful swimmer.
+
+That wasn’t the worst of it. Eddie, Jade’s little brother, went through the windscreen. If that hadn’t killed him, hitting the cliff face did.
+
+Just being here hurts like hell. You ruined so many lives; that’s why you left.
+
+You wish that Vic hadn’t brought you back here. Walking away, you notice a wilted bouquet propped against the cliff, not too far from where your car hit.
+
+
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="9" name="Family home" tags="" position="1025,500" size="100,100">Just as you expected, your old key still fits the lock. Mum made a point of never changing the lock so you could come back home whenever you were ready.
+
+Unsurprisingly, both mum and dad were home. Before you even get past the hallway, you can feel the claustrophobia starting to set in, heavy in your chest.
+
+The next few hours are pretty unbearable. The tears, the agonisingly awkward conversation, and the prolonged silences.
+
+Sooner or later, you’ll have to speak to them about Vic.
+
+
+[[Talk to mum]]
 [[Talk to dad]]
 [[go upstairs]]
 
@@ -166,23 +323,112 @@ Insight: Fault
 
 insight: wander
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="11" name="Lido" tags="" position="900,500" size="100,100">Lead: graffiti &#39;VT is a junkie&#39;
-insight: trouble
+Above a bright red double door, a sign reads Sunny Grove Assisted Living. Behind the letters is painted a childish, smiling sun overlooking a group of children standing next to an old lady in a wheelchair. This piece must have been done by the kids at [lead](Skinningrove School)
+
+Over some years, the paint has chipped and faded leaving some children without both eyes or, instead, with half a mouth.
+
+You reach to press the button on the intercom, perhaps someone here could help you search. Before you do, however, a voice calls from the machine.
+
+“Wasn’t your bench free, Derek?”
+
+Then silence.
+
+“Oh, I’m sorry. I thought you were someone else. No visitors today, I’m afraid. Come back in the week.”
+
+It seems there is little to be found here.
+
+
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="11" name="Lido" tags="" position="900,500" size="100,100">insight: trouble
+
+It doesn’t seem like much has changed in Skinningrove since your childhood. One thing&#39;s for sure: the smells have definitely hung around all these years. Somehow, disgustingly, The stink of the old lido has been concentrated.
+
+Mould, chlorine, cannabis, and piss.
+
+A group of teenagers - the youngest being thirteen, at most - fall silent as you approach.
+
+[[talk to the kids]]
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="12" name="Park" tags="" position="1275,500" size="100,100">insight: &#39;he saw&#39;
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="13" name="Caravans" tags="" position="1400,500" size="100,100">[[ask about valerie]]
+The weather means there are few people around in town, let alone sitting in the park.
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="14" name="School" tags="" position="1525,500" size="100,100">dead end
+On scanning the area, though, you see a figure sitting in one of the iron benches tossing corn at a group of seagulls who swarm around him chaotically.
+
+The old man is wearing a light brown woollen coat, sodden in the rain, and a flat cap of some awful checked pattern.
+
+As you approach, he doesn’t look up from the birds even as they fly away in a panic at your sudden appearance. When the air is empty of the seagulls’ caws, you ask the man if you can sit next to him.
+
+He nods and says: “Don’t mind the ducks. I have to keep them off the [lead](pier).”
+
+You ask what he means, why should the birds stay off the pier?
+
+“Trouble down at the pier. Nasty business. I have to keep them off the pier.”
+
+Attempts to get more information out of the man are fruitless and you leave with little.
+
+
+[[Leave|Go To map]]
+</tw-passagedata><tw-passagedata pid="13" name="Caravans" tags="" position="1400,500" size="100,100">Two dozen caravans are crammed together in a mess of yellowing white plastic and net curtains. You stumble past a bald-headed man drinking from a beer can.
+
+“What d’you want?” He asks and you tell him you’re looking for the Taylor’s caravan.
+
+“Three up and right two. It’s a big white beast. Got ‘Homeward Bound’ on the side of it. Can’t miss it.”
+
+You take his advice and soon find what you’re looking for. They’ve made upgrades since your childhood days. Outside, plastic chairs sit around a wooden picnic table, a striped awning covers a swing-chair, and, in the chair, a middle-aged woman sits smoking a cigarette.
+
+“Mrs Taylor?” You ask.
+
+
+[[ask about valerie]]
+
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="14" name="School" tags="" position="1525,500" size="100,100">Insight: dead end
+
+You never forget your school days. That’s what the teachers used to tell him. They’re the best days of your life. And maybe they were right.
+
+Autopilot took him past the large iron fence, through the staff car park, in through the front doors and straight to the reception area where a young blonde woman wearing spectacles asked him about his appointment.
+
+She looks dismayed when you tell her you don’t have one but hoped you could speak to the headteacher about...well, about anything. There’s not much the local headteacher doesn’t know about their town.
+
+“I’m afraid I can’t let you in without an appointment. Please leave.”
+So much for that great idea
+
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="15" name="Pub" tags="" position="1650,500" size="100,100">lead: Mr taylor reacts to vic&#39;s name
+
+You’ve never actually been in here before. As soon as you were old enough to get in you were already packing your bags.
+
+The Lady behind the bar looks familiar though, and judging by the warm, sympathetic smile she shoots you, she knows exactly who you are.
+
+You order a drink and talk with her for a while. It’s only when you bring up your brother that you realise you know the man sat a few stalls down. Hearing Vic’s name, he downs the last of his drink, slams it to the bar and storms away.
+
+Mr. Taylor. Valerie’s father.
+
+You track him in your periphery as he moves to a booth. As you do, you spot yet another familiar face looking straight at you: Jade.
+
+In another life, you and Jade were romantically involved. Of course, that quickly unravelled after the accident.
+
 
 [[talk Mr. Taylor - Valerie&#39;s dad]]
 [[Old girlfriend]]
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="16" name="Lucky 8" tags="" position="1775,500" size="100,100">[[speak to Roy]]
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="16" name="Lucky 8" tags="" position="1775,500" size="100,100">With there being no competition in the local area, it seems that The Lucky 8 Takeaway, or ‘Unlucky’s’, to the locals, has never needed to make an effort - in service or in food quality.
+
+
+The decoration hasn’t changed in decades. Orange tiled walls, orange tiled floor, orange tiled bench. You can hear a buzzing, and you do your best to convince yourself that it is electrical.
+
+The man behind the counter, almost looks how you remember. Not because of any immaculate skincare routine that has let him bypass the last 10 years, but because this is actually the son of the original owner.
+
+Roy. You went to school with him.
+
+[[speak to Roy]]
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="17" name="Walk up pier" tags="" position="400,650" size="100,100">Insight: close
+
+The cloud cover breaks and the rain ceases for a moment.
+
+The setting sun, ablaze with red and orange, casts its glow over the sea and you feel its welcome warmth on your face.
+
+Here, you remember days long past, dangling fishing line over the edge of the pier and filling your buckets with crabs. You were so close then.
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="18" name="Old friend" tags="" position="525,650" size="100,100">insight: heirloom
 Lead: vic broken in
@@ -190,18 +436,53 @@ Lead: vic broken in
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="19" name="Talk to Simon" tags="" position="650,650" size="100,100">Insight: Dealer
 lead: still sells to valerie
 
+The sudden knot in your throat takes you back to your teens. Simon Powell, a few years above you, was easily the hardest kid in the whole school. If you remember correctly, he was expelled after he sent another kid to the ICU with a bike chain.
+
+You’re almost impressed he’s here in front of you and not serving time for some violent crime.
+
+“It’s a shame ol’ Viccy croaked it. We got on brand new.” A gold tooth catches the light from behind his cracked lips.
+
+“That Valerie girl keeps in touch, mind. Imagine I’ll be seeing her later today.” he rubs his chin, mockingly, as though trying to remember something.
+
+“She’s always skint, that one. Y’know what that means though.” he winks, and knocks twice on the counter with his pinkie ring.
+
 [[Ask around]]
 
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="20" name="Ask around" tags="" position="650,775" size="100,100">A quick scan of the room reveals that a handful of patrons are listening in. You turn to the closest set of eyes - which dart back down to a booking slip.
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="20" name="Ask around" tags="" position="650,775" size="100,100">[[Talk to Simon]] 
+“Do you know—” You’re cut off.
+
+“Nowt’ t’ do with me.” The man seems to know something, but telling would put him in Simon’s bad books. You’ll get nothing from him.
+
+You walk up and sit beside the next onlooker. Without a word, they get up and move away.
+
+For one reason or another, it looks like Simon holds a lot of influence here.
+
+[[Talk to Simon]] 
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="21" name="Talk to mum" tags="" position="1025,650" size="100,100">Insight: mercy
+
+Mum’s aged so much since you last saw her. Who could say whether that’s the product of time, or of losing one - both - of her boys.
+
+“If I can take anything from what’s happened, it’s that he’s not hurting any more. Vic knew his problem was killing him, and he was ashamed of it.”
+
+“Truth is he didn’t know if he had it in him to get clean. I could see that in his eyes. I think that might’ve been why he was spending so much time walking up and down that beach. Just... being alone with his thoughts.”
+
+“God, I wish he talked to me.”
 
 [[go upstairs]] 
 [[Talk to dad]] 
 
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="22" name="Talk to dad" tags="" position="1025,775" size="100,100">Double-click this passage to edit it.
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="22" name="Talk to dad" tags="" position="1025,775" size="100,100">“See, what hurts me most is that the world will only remember Vic for his problems. He was getting himself straightened out, you know that?”
+
+Dad looks so tired.
+
+“It’s just cruel, really, isn’t it? Right as he was getting himself fixed, all this happened. He had just gone out to tell that Taylor girl about the rehab. I still reckon she has the same problem as he did.”
+
+He’s looking out the front window, up towards the caravan site on the hill.
+
+“Knowing our Vic, I bet he was trying to get her to go with him. That’s just how your brother was.”
 
 [[Talk to mum]]
 [[go upstairs]] 
@@ -211,21 +492,78 @@ lead: still sells to valerie
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="23" name="go upstairs" tags="" position="1025,900" size="100,100">lead: Simon&#39;s number
 insight: dealer
 
+Upstairs, both your and Vic’s rooms are exactly how you each left them. As though, any day now, the whole family will come back together and you’ll continue where you left off, before you got away from Skinningrove.
+
+There’s not much in Vic’s room. Seems like anything that might have been somewhat valuable is gone. Pawned, maybe? One thing that catches your eye is a slip of paper on the bedside table. 
+
+You unfold it. It has a phone number–
+–and the initials S.P.
+
+
 [[Talk to mum]] 
 [[Talk to dad]] 
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="24" name="ask about valerie" tags="" position="1400,650" size="100,100">Lead: Vic wanted her to get clean
 Insight: fight
 
+“You’ve a nerve coming round ‘ere, boy.” Snarled the woman recognisable only by the red lipstick and dark eyeshadow that she slaps on every morning just as she did when you were young.
+
+“I ‘eard tell you were back. It’s only now I believe it. You come to bury your brother, the swine?” She continues, spitting on the grass at her feet.
+
+You explain you’re only here to have a word with Valerie, Vic’s on-and-off girlfriend since childhood. Her mother, Mrs Taylor, isn’t impressed. “No Tyde’ll come anywhere near my Val while I’m alive.” She explains and you believe her.
+
+As you turn to walk away, knowing you won’t win this battle, a familiar voice calls from inside the caravan.
+
+“Mum, my chest hurts. Let me get some air. I’ll only go round the corner. Please. You can trust me.” It’s Valerie. You turn around to see Mrs Taylor rush inside. There’s nothing more of use here.
+
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="25" name="talk Mr. Taylor - Valerie&#39;s dad" tags="" position="1650,650" size="100,100">Lead: Vic got Valerie addicted
 Insight: guilt
+
+As you approach his booth, Mr. Taylor curses at you under his breath.
+“—and here I am looking at another bloody Tyde boy. There’s nowt here for you lad, unless y’planning on shooting up the same crap as y’brother. And if that’s why y’here don’t let me bloody stop you.”
+
+You can tell by the tears that form in his eyes as he speaks that Mr. Taylor hates you, and Vic, in a way that only a wounded father could.
+
+He says one more thing to you as you turn away.
+
+“Daniel, if you go anywhere near our Val, I’ll kill you.”
 
 [[Old girlfriend]] 
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="26" name="Old girlfriend" tags="" position="1650,775" size="100,100">lead: resents vic for media attention after crash
 insight: lie
 
-[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="27" name="speak to Roy" tags="" position="1775,650" size="100,100">
+“You look just like your brother, Danny. He looked like shit as well. Maybe in a different way, but… shit, all the same.” Jade sips a clear drink. For a moment, it looks like her hand might be shaking. She places the drink back down in front of her and returns her hands to her lap.
+
+“It’s good to see you though, I think. I just don’t get why you needed to come back. A fresh start was the best thing for you.”
+
+Over a few melancholy drinks, you reminisce. After enough uncomfortable chatter, you eventually work up the courage to mention the accident.
+
+“I’m not angry at you, you know? Not any more, at least. I know you weren’t drinking when it happened. I told you we should have slept on the floor at Val’s, but…”
+
+She trails off, deep in thought.
+
+“Been a few crashes on that corner over the years. Last one couldn’t have been any more than, god, six months ago.”
+
+Her brow furrows.
+
+“I just hate how the world just forgot about our Eddie. A fifteen year old boy is killed, and all anyone cares about is the crippled swim-star. Sickening.”
+
+She glances back up from her drink, remembering who she’s talking to.
+
+“Still, it’s real horrible how your Vic went. We had our problems, but I wouldn’t wish that on anyone - believe me.”
+
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="27" name="speak to Roy" tags="" position="1775,650" size="100,100">“What y’ having, mate?”, says your old classmate.
+
+Your face clearly isn’t ringing any bells for him. There wasn’t much to remember - you never really got on.
+
+“Just a tray special please.”
+
+“Two-fifty.” He nods as you pass him a handful of coins.
+
+A short while later, Roy emerges from the kitchen with your food in a brown paper bag, already perishing to the grease.
+
+Whatever the food in the tray is, it isn’t what you ordered. That’s unlucky.
 
 [[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="28" name="Beach revisited" tags="" position="400,1100" size="100,100">
 [[accuse a passer by]]
@@ -259,7 +597,23 @@ insight: lie
 [[prologue]]</tw-passagedata><tw-passagedata pid="40" name="accuse old friend" tags="" position="525,1250" size="100,100">[[the end]]
 </tw-passagedata><tw-passagedata pid="41" name="accuse bookie" tags="" position="650,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="42" name="accuse Simon" tags="" position="650,1375" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="43" name="accuse mum" tags="" position="1025,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="44" name="accuse dad" tags="" position="1025,1375" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="45" name="accuse Derek" tags="" position="1275,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="46" name="accuse Valerie" tags="" position="1400,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="47" name="accuse Mr. Taylor" tags="" position="1650,1375" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="48" name="accuse old girlfriend" tags="" position="1650,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="49" name="accuse Landlord" tags="" position="1650,1500" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="50" name="accuse roy" tags="" position="1775,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="51" name="accuse kids" tags="" position="900,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="52" name="the end" tags="" position="1000,1700" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="53" name="accuse a passer by" tags="" position="400,1250" size="100,100">[[the end]]</tw-passagedata><tw-passagedata pid="54" name="School revisited" tags="" position="1525,1100" size="100,100">
 
-[[Leave|Go To map]]</tw-passagedata></tw-storydata>
+[[Leave|Go To map]]</tw-passagedata><tw-passagedata pid="55" name="talk to the kids" tags="" position="900,650" size="100,100">Lead: &quot;VT is junkie scum&quot;
+
+You’d be lying if you said you weren’t intimidated. You’re almost relieved when something pulls your attention to your right. Graffiti.
+
+“V.T. IS JUNKIE SCUM”.
+
+You turn back to the hooligans. They’re all still very much locked on to you. You don’t need one of Vic’s messages to know that you’ve grown too old to come here. Time to leave.
+
+A few steps back up the path and— crack. A dizzying, metallic clatter shoots pain up the back of your head and along your scalp. A can of spray paint.
+
+Your stomach flips as you hear a burst of cackles and stampeding feet across the cracked cement. For a second, it’s fight or flight. Then you realise footsteps are running from you.
+
+Kids. Were you like your brother, you’d have reacted. Maybe chased them down. Caused a scene. But there’s no telling how dangerous a group of kids like that could be.
+
+[[Leave|Go To map]]
+
+</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},errorPrologRegExp=/^(?:(?:uncaught\s+(?:exception:\s+)?)?\w*(?:error|exception|_err):\s+)+/i,Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(errorPrologRegExp,"")+".":": unknown error."),"object"===(void 0===n?"undefined":_typeof(n))&&null!==n&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}(),Patterns=function(){var e=function(){var e=new Map([[" ","\\u0020"],["\f","\\f"],["\n","\\n"],["\r","\\r"],["\t","\\t"],["\v","\\v"],[" ","\\u00a0"],[" ","\\u1680"],["᠎","\\u180e"],[" ","\\u2000"],[" ","\\u2001"],[" ","\\u2002"],[" ","\\u2003"],[" ","\\u2004"],[" ","\\u2005"],[" ","\\u2006"],[" ","\\u2007"],[" ","\\u2008"],[" ","\\u2009"],[" ","\\u200a"],["\u2028","\\u2028"],["\u2029","\\u2029"],[" ","\\u202f"],[" ","\\u205f"],["　","\\u3000"],["\ufeff","\\ufeff"]]),t=/^\s$/,r="";return e.forEach(function(e,n){t.test(n)||(r+=e)}),r?"[\\s"+r+"]":"\\s"}(),t="[\\u0020\\f\\t\\v\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000\\ufeff]",r="\\s"===e?"\\S":e.replace(/^\[/,"[^"),n="[0-9A-Z_a-z\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u00ff\\u0150\\u0170\\u0151\\u0171]",a=n.replace("\\-",""),i=function(){var e="(?:[\\x2D.0-9A-Z_a-z\\xB7\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD]|[\\uD800-\\uDB7F][\\uDC00-\\uDFFF])";return"[A-Za-z](?:"+e+"*-"+e+"*|[0-9A-Za-z]*)"}(),o=function(){return"("+n+"+)\\(([^\\)\\|\\n]+)\\):|"+t+"*("+n+"+)"+t+"*:([^;\\|\\n]+);|"+t+"*((?:[#.]"+n+"+"+t+"*)+);"}();return Object.freeze({space:e,spaceNoTerminator:t,lineTerminator:"[\\n\\r\\u2028\\u2029]",notSpace:r,anyChar:"(?:.|[\\n\\r\\u2028\\u2029])",anyLetter:n,anyLetterStrict:a,identifierFirstChar:"[$A-Z_a-z]",identifierNextChar:"[$0-9A-Z_a-z]",identifier:"[$A-Z_a-z][$0-9A-Z_a-z]*",variableSigil:"[$_]",variable:"[$_][$A-Z_a-z][$0-9A-Z_a-z]*",macroName:"[A-Za-z][\\w-]*|[=-]",templateName:"[A-Za-z][\\w-]*",htmlTagName:i,cssIdOrClassSigil:"[#.]",cssImage:"\\[[<>]?[Ii][Mm][Gg]\\[(?:\\s|\\S)*?\\]\\]+",inlineCss:o,url:"(?:file|https?|mailto|ftp|javascript|irc|news|data):[^\\s'\"]+"})}();!function(){function e(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n=void 0===t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var t=function(){function e(e,n){var a=String(e);if(!a)return a;switch(n){case"start":return t.test(a)?a.replace(t,""):a;case"end":return r.test(a)?a.replace(r,""):a;default:throw new Error('_trimString called with incorrect where parameter value: "'+n+'"')}}var t=new RegExp("^"+Patterns.space+Patterns.space+"*"),r=new RegExp(""+Patterns.space+Patterns.space+"*$");return e}();Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,writable:!0,value:function(){function e(){if(null==this)throw new TypeError("Array.prototype.flat called on null or undefined");var t=0===arguments.length?1:Number(arguments[0])||0;return t<1?Array.prototype.slice.call(this):Array.prototype.reduce.call(this,function(r,n){return n instanceof Array?r.push.apply(r,_toConsumableArray(e.call(n,t-1))):r.push(n),r},[])}return e}()}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatMap called on null or undefined");return Array.prototype.map.apply(this,arguments).flat()}}),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(n===t||n!==n&&t!==t)return!0}return!1}}),Object.entries||Object.defineProperty(Object,"entries",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.entries object parameter must be an object");return Object.keys(e).map(function(t){return[t,e[t]]})}}),Object.fromEntries||Object.defineProperty(Object,"fromEntries",{configurable:!0,writable:!0,value:function(e){return Array.from(e).reduce(function(e,t){if(Object(t)!==t)throw new TypeError("Object.fromEntries iterable parameter must yield objects");return t[0]in e?Object.defineProperty(e,t[0],{configurable:!0,enumerable:!0,writable:!0,value:t[1]}):e[t[0]]=t[1],e},{})}}),Object.getOwnPropertyDescriptors||Object.defineProperty(Object,"getOwnPropertyDescriptors",{configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Object.getOwnPropertyDescriptors object parameter is null or undefined");var t=Object(e);return Reflect.ownKeys(t).reduce(function(e,r){var n=Object.getOwnPropertyDescriptor(t,r);return void 0!==n&&(r in e?Object.defineProperty(e,r,{configurable:!0,enumerable:!0,writable:!0,value:n}):e[r]=n),e},{})}}),Object.values||Object.defineProperty(Object,"values",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.values object parameter must be an object");return Object.keys(e).map(function(t){return e[t]})}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:e(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:n+e(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return t(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return t(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return t(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return t(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r)<0&&(r=0),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n)<0&&(n=e-1),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){return e[0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1))]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var e=Array.from(this);if(0===arguments.length)return e;var t=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),r=t.length;if(0===r)return e;for(var n=Array.prototype.indexOf,a=Array.prototype.push,i=0;i<r;++i){var o=t[i];-1===n.call(e,o)&&a.call(e,o)}return e}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;-1!==(r=e.call(this,t,r));)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.concat.apply([],arguments),r=t.length,n=[],a=0;a<e;++a)for(var i=this[a],o=0;o<r;++o){var s=t[o];if(i===s||i!==i&&s!==s){n.push(a);break}}for(var u=[],l=0,c=n.length;l<c;++l)u[l]=this[n[l]];for(var d=Array.prototype.splice,f=n.length-1;f>=0;--f)d.call(this,n[f],1);return u}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"deleteWith",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.deleteWith called on null or undefined");if("function"!=typeof e)throw new Error("Array.prototype.deleteWith predicate parameter must be a function");var r=this.length>>>0;if(0===r)return[];for(var n=Array.prototype.splice,a=[],i=[],o=0;o<r;++o)e.call(t,this[o],o,this)&&(i.push(this[o]),a.push(o));for(var s=a.length-1;s>=0;--s)n.call(this,a[s],1);return i}}),Object.defineProperty(Array.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.first called on null or undefined");if(0!=this.length>>>0)return this[0]}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.last called on null or undefined");var e=this.length>>>0;if(0!==e)return this[e-1]}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do{a.push(n.call(this,_random(0,i--),1)[0])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){return this[0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)))]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do{o=_random(0,i)}while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.unshift,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function(e,t,r){var n=Number(e);return Number.isNaN(n)?NaN:n.clamp(t,r)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch(void 0===i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return-1!==String.prototype.indexOf.apply(this,arguments)}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;-1!==(n=t.call(this,e,n));)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.first called on null or undefined");return _getCodePointStartAndEnd(String(this),0).char}}),Object.defineProperty(String.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.last called on null or undefined");var e=String(this);return _getCodePointStartAndEnd(e,e.length-1).char}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n)<0&&(a=0):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return void 0!==r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_stringify",{value:JSON.stringify}),Object.defineProperty(JSON,"stringify",{configurable:!0,writable:!0,value:function(e,t,r){return JSON._real_stringify(e,function(e,r){var n=r;if("function"==typeof t)try{n=t(e,n)}catch(e){}return void 0===n&&(n=["(revive:eval)","undefined"]),n},r)}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.flat.call(this,1/0)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Opera:!t&&("object"===_typeof(window.operamini)||e.includes("opera mini")),Windows:t||/iemobile|wpdesktop/.test(e),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Opera||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null,u=e.includes("vivaldi");return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s,isVivaldi:u})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),r=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),n=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),a=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}(),i=function(){try{return"ontouchstart"in window||!!window.DocumentTouch&&document instanceof window.DocumentTouch||!!navigator.maxTouchPoints||!!navigator.msMaxTouchPoints}catch(e){}return!1}(),o=function(){try{for(var e=new Map([["transition","transitionend"],["MSTransition","msTransitionEnd"],["WebkitTransition","webkitTransitionEnd"],["MozTransition","transitionend"]]),t=[].concat(_toConsumableArray(e.keys())),r=document.createElement("div"),n=0;n<t.length;++n)if(r.style[t[n]]!==undefined)return e.get(t[n])}catch(e){}return!1}();return Object.freeze({audio:e,fileAPI:t,geolocation:r,mutationObserver:n,performance:a,touch:i,transitionEndEvent:o})}(),Visibility=function(){function e(){return a}function t(){return a&&document[a.stateProperty]||"visible"}function r(){return Boolean(a)}function n(){return Boolean(a&&document[a.hiddenProperty])}var a=function(){try{return Object.freeze([{hiddenProperty:"hidden",stateProperty:"visibilityState",changeEvent:"visibilitychange"},{hiddenProperty:"webkitHidden",stateProperty:"webkitVisibilityState",changeEvent:"webkitvisibilitychange"},{hiddenProperty:"mozHidden",stateProperty:"mozVisibilityState",changeEvent:"mozvisibilitychange"},{hiddenProperty:"msHidden",stateProperty:"msVisibilityState",changeEvent:"msvisibilitychange"}].find(function(e){return e.hiddenProperty in document}))}catch(e){}return undefined}();return Object.freeze(Object.defineProperties({},{vendor:{get:e},state:{get:t},isEnabled:{value:r},isHidden:{value:n},hiddenProperty:{value:a&&a.hiddenProperty},stateProperty:{value:a&&a.stateProperty},changeEvent:{value:a&&a.changeEvent}}))}(),Fullscreen=function(){function e(e){var t=e||document.documentElement;return t===document.documentElement&&("msRequestFullscreen"===f.requestFn||Browser.isOpera&&Browser.operaVersion<15)&&(t=document.body),t}function t(){return f}function r(){return(f||null)&&document[f.element]}function n(){return Boolean(f&&document[f.isEnabled])}function a(){return Boolean(f&&document[f.element])}function i(t,r){var n=this;if(!f)return Promise.reject(new Error("fullscreen not supported"));var i=e(r);if("function"!=typeof i[f.requestFn])return Promise.reject(new Error("fullscreen not supported"));if(a())return Promise.resolve();if(p())return i[f.requestFn](t);var o=".Fullscreen_requestFullscreen";return new Promise(function(e,r){jQuery(i).off(o).one(""+f.errorEvent+o+" "+f.changeEvent+o,function(t){jQuery(n).off(o),t.type===f.errorEvent?r(new Error("unknown fullscreen request error")):e()}),i[f.requestFn](t)})}function o(){var e=this;if(!f||"function"!=typeof document[f.exitFn])return Promise.reject(new TypeError("fullscreen not supported"));if(!a())return Promise.reject(new TypeError("fullscreen mode not active"));if(p())return document[f.exitFn]();var t=".Fullscreen_exitFullscreen";return new Promise(function(r,n){jQuery(document).off(t).one(""+f.errorEvent+t+" "+f.changeEvent+t,function(a){jQuery(e).off(t),a.type===f.errorEvent?n(new Error("unknown fullscreen exit error")):r()}),document[f.exitFn]()})}function s(e,t){return a()?o():i(e,t)}function u(t,r){if(f){var n=e(r);$(n).on(f.changeEvent,t)}}function l(t,r){if(f){var n=e(r);t?$(n).off(f.changeEvent,t):$(n).off(f.changeEvent)}}function c(t,r){if(f){var n=e(r);$(n).on(f.errorEvent,t)}}function d(t,r){if(f){var n=e(r);t?$(n).off(f.errorEvent,t):$(n).off(f.errorEvent)}}var f=function(){try{return Object.freeze([{isEnabled:"fullscreenEnabled",element:"fullscreenElement",requestFn:"requestFullscreen",exitFn:"exitFullscreen",changeEvent:"fullscreenchange",errorEvent:"fullscreenerror"},{isEnabled:"webkitFullscreenEnabled",element:"webkitFullscreenElement",requestFn:"webkitRequestFullscreen",exitFn:"webkitExitFullscreen",changeEvent:"webkitfullscreenchange",errorEvent:"webkitfullscreenerror"},{isEnabled:"mozFullScreenEnabled",element:"mozFullScreenElement",requestFn:"mozRequestFullScreen",exitFn:"mozCancelFullScreen",changeEvent:"mozfullscreenchange",errorEvent:"mozfullscreenerror"},{isEnabled:"msFullscreenEnabled",element:"msFullscreenElement",requestFn:"msRequestFullscreen",exitFn:"msExitFullscreen",changeEvent:"MSFullscreenChange",errorEvent:"MSFullscreenError"}].find(function(e){return e.isEnabled in document}))}catch(e){}return undefined}(),p=function(){function e(){if(null!==t)return t;if(t=!1,f)try{var e=document.exitFullscreen();e.catch(function(){}),t=e instanceof Promise}catch(e){}return t}var t=null;return e}();return Object.freeze(Object.defineProperties({},{vendor:{get:t},element:{get:r},isEnabled:{value:n},isFullscreen:{value:a},request:{value:i},exit:{value:o},toggle:{value:s},onChange:{value:u},offChange:{value:l},onError:{value:c},offError:{value:d}}))}(),_ref3=function(){function e(e){for(var t=e.cloneNode(!0),r=document.createDocumentFragment(),n=void 0;null!==(n=t.firstChild);){if(n.nodeType===Node.ELEMENT_NODE)switch(n.nodeName.toUpperCase()){case"BR":case"DIV":case"P":r.appendChild(document.createTextNode(" "))}r.appendChild(n)}return r.textContent}function t(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)return e;if(e instanceof String)return String(e);if(e instanceof Number)return Number(e);if(e instanceof Boolean)return Boolean(e)
